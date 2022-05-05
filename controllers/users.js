@@ -3,6 +3,16 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const collection = 'users';
 
+
+
+const testCreateUser = async (req,res) => {
+  res.send("👌");
+  // res.status(200);
+  // res.sendStatus(200);
+}
+
+
+
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection(collection).find();
   result.toArray().then((lists) => {
@@ -41,8 +51,11 @@ const createUser = async (req, res) => {
 };
 
 
+
+
 module.exports = {
   getAll,
   getSingle,
-  createUser
+  createUser,
+  testCreateUser
 }
