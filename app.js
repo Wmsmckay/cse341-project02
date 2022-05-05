@@ -24,5 +24,3 @@ mongodb.initDb((err) => {
     console.log(`App running on port: ${port}`);
   }
 });
-
-// export default app;
