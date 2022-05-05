@@ -1,4 +1,5 @@
 // const { response } = require('express');
+const { response } = require('express');
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const collection = 'users';
@@ -39,6 +40,11 @@ const createUser = async (req, res) => {
     res.status(500).json(response.error || 'Error occurred while creating user.');
   }
 };
+
+async function test() {
+  // const response = "Hello World"
+  return await "hello tests"
+}
 
 
 module.exports = {

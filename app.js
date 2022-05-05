@@ -16,6 +16,9 @@ app
   })
   .use('/', require('./routes'));
 
+  // console.log(app._router.stack)
+
+
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
