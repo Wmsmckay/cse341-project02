@@ -1,38 +1,12 @@
+const array = require('@hapi/joi/lib/types/array');
 const mongoose = require('mongoose');
 
 const EventSchema = mongoose.Schema({
-  // firstName: {
-  //     type: String,
-  //     required: true
-  // },
-  // lastName: {
-  //     type: String,
-  //     required: true
-  // },
-  // email: {
-  //     type: String,
-  //     required: true
-  // },
-  // age: {
-  //     type: String,
-  //     required: true
-  // },
-  // phone: {
-  //     type: String,
-  //     required: true
-  // },
-  // eventsAttended: {
-  //     type: String,
-  //     required: true
-  // },
-  // gender: {
-  //     type: String,
-  //     required: true
-  // },
-  // age: {
-  //     type: String,
-  //     required: true
-  // }
+  eventName: { type: String },
+  participants: { type: array },
+  location: { type: String },
+  description: { type: String },
+  host: { type: String }
 });
 
 module.exports = mongoose.model('Events', EventSchema);

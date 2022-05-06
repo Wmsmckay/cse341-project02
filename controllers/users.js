@@ -21,9 +21,9 @@ const getAll = async (req, res, next) => {
     const request = await UserModel.find();
     res.json(request);
   } catch (err) {
-    res.json({
-      message: err
-    });
+    // res.json({
+    //   message: err
+    // });
     next(err);
   }
 };
