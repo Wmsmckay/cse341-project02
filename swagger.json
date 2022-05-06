@@ -5,7 +5,7 @@
     "description": "API for creating events and registering to attend them.",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse341-project02-mw.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
@@ -17,11 +17,15 @@
       "description": "Endpoints for Events"
     }
   ],
-  "schemes": ["http"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/users/": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -31,7 +35,9 @@
         }
       },
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -43,7 +49,9 @@
     },
     "/users/{id}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -60,7 +68,9 @@
         }
       },
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -107,7 +117,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -126,7 +138,9 @@
     },
     "/events/": {
       "get": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -136,7 +150,9 @@
         }
       },
       "post": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -148,7 +164,9 @@
     },
     "/events/{id}": {
       "get": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [
           {
@@ -165,7 +183,9 @@
         }
       },
       "put": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [
           {
@@ -206,7 +226,9 @@
         }
       },
       "delete": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [
           {
