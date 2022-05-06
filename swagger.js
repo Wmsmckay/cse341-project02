@@ -2,8 +2,8 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API',
-    description: 'Description'
+    title: 'Events API',
+    description: 'API for creating events and registering to attend them.'
   },
   // host: 'cse341-project02-mw.herokuapp.com',
   host: 'localhost:8080',
@@ -28,6 +28,3 @@ const endpointsFiles = ['./routes/index.js'];
    such as index.js, app.js, routes.js, ... */
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
-// .then(() => {
-//     require('./index.js');           // Your project's root file
-// })
