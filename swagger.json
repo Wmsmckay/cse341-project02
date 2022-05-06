@@ -1,22 +1,32 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Description",
+    "title": "Events API",
+    "description": "API for creating events and registering to attend them.",
     "version": "1.0.0"
   },
   "host": "cse341-project02-mw.herokuapp.com",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Endpoints for Users"
+    },
+    {
+      "name": "Events",
+      "description": "Endpoints for Events"
+    }
+  ],
   "schemes": [
     "https"
   ],
   "paths": {
     "/users/": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
+        "tags": [
+          "Users"
         ],
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
@@ -25,8 +35,50 @@
         }
       },
       "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -39,10 +91,10 @@
                 "lastName": {
                   "example": "any"
                 },
-                "age": {
+                "email": {
                   "example": "any"
                 },
-                "email": {
+                "age": {
                   "example": "any"
                 },
                 "phone": {
@@ -59,21 +111,16 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "200": {
+            "description": "OK"
           }
         }
-      }
-    },
-    "/users/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
+      },
+      "delete": {
+        "tags": [
+          "Users"
         ],
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -91,10 +138,10 @@
     },
     "/events/": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
+        "tags": [
+          "Events"
         ],
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
@@ -103,8 +150,50 @@
         }
       },
       "post": {
+        "tags": [
+          "Events"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/events/{id}": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Events"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -115,6 +204,9 @@
                   "example": "any"
                 },
                 "participants": {
+                  "example": "any"
+                },
+                "location": {
                   "example": "any"
                 },
                 "description": {
@@ -128,21 +220,16 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "200": {
+            "description": "OK"
           }
         }
-      }
-    },
-    "/events/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
+      },
+      "delete": {
+        "tags": [
+          "Events"
         ],
+        "description": "",
         "parameters": [
           {
             "name": "id",

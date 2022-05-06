@@ -2,11 +2,22 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API',
-    description: 'Description'
+    title: 'Events API',
+    description: 'API for creating events and registering to attend them.'
   },
   host: 'cse341-project02-mw.herokuapp.com',
-  schemes: ['https']
+  // host: 'localhost:8080',
+  schemes: ['https'],
+  tags: [
+    {
+      name: 'Users',
+      description: 'Endpoints for Users'
+    },
+    {
+      name: 'Events',
+      description: 'Endpoints for Events'
+    }
+  ]
 };
 
 const outputFile = './swagger.json';
