@@ -1,0 +1,179 @@
+##########################################
+########### Development routes ###########
+##########################################
+
+########## USERS ##########
+### Get user
+GET http://localhost:8080/users
+
+
+### Post user
+POST http://localhost:8080/users
+content-type: application/json
+
+{
+    "firstName": "Scott",
+    "lastName": "Klein",
+    "email": "sklein@gmail.com",
+    "age": 32,
+    "phone": 1234567890,
+    "eventsAttended": ["Brunch with the girls"],
+    "gender": "male"
+}
+
+
+### Get user by id
+GET http://localhost:8080/users/627356ca924ec81f6c4c9192
+
+
+### Put user
+PUT http://localhost:8080/users/6275a3b6e39b529fb7d65a89
+content-type: application/json
+
+
+{
+    "firstName": "Scott",
+    "lastName": "Klein",
+    "email": "sklein@gmail.com",
+    "age": 32,
+    "phone": 1234567890,
+    "eventsAttended": ["Star Wars movie night"],
+    "gender": "male"
+}
+
+
+### Delete user
+DELETE http://localhost:8080/users/6275a3b6e39b529fb7d65a89
+
+
+
+########## EVENTS ##########
+### Get events
+GET http://localhost:8080/events
+
+
+### Post event
+POST http://localhost:8080/events
+content-type: application/json
+
+{
+    "eventName": "Car Meet",
+    "participants": ["Scott Klein", "Drift King (DK)"],
+    "description": "Meetup for people that love cars",
+    "location": "Parking lot",
+    "host": "Drift King (DK)"
+}
+
+
+### Get event by id
+GET http://localhost:8080/events/6275a496e39b529fb7d65a8d
+
+
+### Put event
+PUT http://localhost:8080/events/6275a496e39b529fb7d65a8d
+content-type: application/json
+
+{
+    "eventName": "Super Car Meet",
+    "participants": ["Scott Klein", "Drift King (DK)"],
+    "description": "Meetup for people that love cars way too much",
+    "host": "Drift King (DK)"
+}
+
+
+### Delete event
+DELETE http://localhost:8080/events/6275a496e39b529fb7d65a8d
+
+
+
+
+
+
+
+##########################################
+############ Production routes ###########
+##########################################
+
+########## USERS ##########
+### Get user
+GET https://cse341-project02-mw.herokuapp.com/users
+
+
+### Post user
+POST https://cse341-project02-mw.herokuapp.com/users
+content-type: application/json
+
+{
+    "firstName": "Scott",
+    "lastName": "Klein",
+    "email": "sklein@gmail.com",
+    "age": 32,
+    "phone": 1234567890,
+    "eventsAttended": ["Brunch with the girls"],
+    "gender": "male"
+}
+
+
+### Get user by id
+GET https://cse341-project02-mw.herokuapp.com/users/6275a3b6e39b529fb7d65a89
+
+
+### Put user
+PUT https://cse341-project02-mw.herokuapp.com/users/6275a3b6e39b529fb7d65a89
+content-type: application/json
+
+
+{
+    "firstName": "Scott",
+    "lastName": "Klein",
+    "email": "sklein@gmail.com",
+    "age": 32,
+    "phone": 1234567890,
+    "eventsAttended": ["Star Wars movie night"],
+    "gender": "male"
+}
+
+
+### Delete user
+DELETE https://cse341-project02-mw.herokuapp.com/users/6275a3b6e39b529fb7d65a89
+
+
+
+########## EVENTS ##########
+### Get events
+GET https://cse341-project02-mw.herokuapp.com/events
+
+
+### Post event
+POST https://cse341-project02-mw.herokuapp.com/events
+content-type: application/json
+
+{
+    "eventName": "Car Meet",
+    "participants": ["Scott Klein", "Drift King (DK)"],
+    "description": "Meetup for people that love cars",
+    "location": "Parking lot",
+    "host": "Drift King (DK)"
+}
+
+
+### Get event by id
+GET https://cse341-project02-mw.herokuapp.com/events/6275a496e39b529fb7d65a8d
+
+
+### Put event
+PUT https://cse341-project02-mw.herokuapp.com/events/6275a496e39b529fb7d65a8d
+content-type: application/json
+
+
+{
+    "eventName": "Car Meet",
+    "participants": ["Scott Klein", "Drift King (DK)"],
+    "description": "Meetup for people that love cars",
+    "location": "Parking lot",
+    "host": "Drift King (DK)"
+}
+
+
+### Delete event
+DELETE https://cse341-project02-mw.herokuapp.com/events/6275a496e39b529fb7d65a8d

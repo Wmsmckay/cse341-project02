@@ -1,7 +1,7 @@
 const collection = 'events';
 const { response } = require('express');
 const res = require('express/lib/response');
-const EvnetsModel = require('../models/events');
+const EventsModel = require('../models/events');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 const { createEventSchema, updateEventSchema } = require('../helpers/validation_schema');

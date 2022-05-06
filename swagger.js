@@ -7,17 +7,17 @@ const doc = {
   },
   // host: 'cse341-project02-mw.herokuapp.com',
   host: 'localhost:8080',
-  schemes: ['http']
-  // tags: [
-  //   {
-  //     name: 'Users',
-  //     description: 'Endpoints for Users'
-  //   },
-  //   {
-  //     name: "Events",
-  //     description: "Endpoints for Events"
-  //   }
-  // ]
+  schemes: ['http'],
+  tags: [
+    {
+      name: 'Users',
+      description: 'Endpoints for Users'
+    },
+    {
+      name: 'Events',
+      description: 'Endpoints for Events'
+    }
+  ]
 };
 
 const outputFile = './swagger.json';
