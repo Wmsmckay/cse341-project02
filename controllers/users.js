@@ -7,7 +7,7 @@ const UserModel = require('../models/users');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 const {
-  userSchema
+  createUserSchema, updateUserSchema
 } = require('../helpers/validation_schema')
 
 // #swagger.tags = ['Users']
@@ -54,18 +54,19 @@ const getSingle = async (req, res, next) => {
 const create_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
-  const user = new UserModel({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    age: req.body.age,
-    email: req.body.email,
-    phone: req.body.phone,
-    eventsAttended: req.body.eventsAttended,
-    gender: req.body.gender
-  });
-  
+  // const user = new UserModel({
+  //   firstName: req.body.firstName,
+  //   lastName: req.body.lastName,
+  //   age: req.body.age,
+  //   email: req.body.email,
+  //   phone: req.body.phone,
+  //   eventsAttended: req.body.eventsAttended,
+  //   gender: req.body.gender
+  // });
+
   try {
-    const result = await userSchema.validateAsync(req.body)    
+    const result = await createUserSchema.validateAsync(req.body)
+    const user = new UserModel(result)
     const request = await user.save();
     res.json(request);
 
@@ -86,9 +87,14 @@ const update_user = async (req, res, next) => {
 
   try {
     const user = await UserModel.findById(req.params.id);
+
     if (!user) {
       throw createError(404, "User doesn't exist");
     }
+
+    const result = await updateUserSchema.validateAsync(req.body)
+
+
     if (req.body.firstName) {
       user.firstName = req.body.firstName
     };
@@ -114,7 +120,7 @@ const update_user = async (req, res, next) => {
     await user.save();
     res.send(user);
 
-  } catch {
+  } catch (err) {
     if (err instanceof mongoose.CastError) {
       return next(createError(400, "Invalid User id"))
     }

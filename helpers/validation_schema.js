@@ -6,7 +6,7 @@ const authSchema = Joi.object({
     // add regex for password
 })
 
-const userSchema = Joi.object({
+const createUserSchema = Joi.object({
     // use regex for phone number length
     firstName: Joi.string().required(),
     lastName: Joi.string().required(),
@@ -17,7 +17,19 @@ const userSchema = Joi.object({
     gender: Joi.string()
 })
 
+const updateUserSchema = Joi.object({
+    // use regex for phone number length
+    firstName: Joi.string().empty(''),
+    lastName: Joi.string().empty(''),
+    email: Joi.string().email().lowercase().empty(''),
+    age: Joi.number().integer().empty(''),
+    phone: Joi.number().integer().empty(''),
+    eventsAttended: Joi.array().items(Joi.string()).empty(''),
+    gender: Joi.string().empty('')
+})
+
 module.exports = {
     authSchema,
-    userSchema
+    createUserSchema,
+    updateUserSchema
 }
