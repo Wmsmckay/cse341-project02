@@ -17,7 +17,7 @@ app
     // const err = new Error('not found');
     // err.status = 404;
     // next(err)
-    next(createError(404, "Not found"));
+    next(createError(404, 'Not found'));
   })
   .use((err, req, res, next) => {
     res.status(err.status || 500);
@@ -27,16 +27,13 @@ app
         message: err.message
         // message: `${err.status || 500}: ${err.message}`
       }
-    })
+    });
   });
 
 //   return app;
 // };
 
-
-
-module.exports = app
-
+module.exports = app;
 
 // mongodb.initDb((err) => {
 //   if (err) {

@@ -1,17 +1,12 @@
 const collection = 'users';
-const {
-  response
-} = require('express');
+const { response } = require('express');
 const res = require('express/lib/response');
 const UserModel = require('../models/users');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const {
-  createUserSchema, updateUserSchema
-} = require('../helpers/validation_schema')
+const { createUserSchema, updateUserSchema } = require('../helpers/validation_schema');
 
 // #swagger.tags = ['Users']
-
 
 // const testCreateUser = async (req, res) => {
 //   res.send({});
@@ -24,13 +19,13 @@ const getAll = async (req, res, next) => {
 
   try {
     const request = await UserModel.find();
-    res.json(request)
+    res.json(request);
   } catch (err) {
     res.json({
       message: err
     });
-    next(err)
-  };
+    next(err);
+  }
 };
 
 const getSingle = async (req, res, next) => {
@@ -44,43 +39,31 @@ const getSingle = async (req, res, next) => {
     res.json(request);
   } catch (err) {
     if (err instanceof mongoose.CastError) {
-      next(createError(400, "Invalid User id"))
-      return
+      next(createError(400, 'Invalid User id'));
+      return;
     }
-    next(err)
+    next(err);
   }
-}
+};
 
 const create_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
-  // const user = new UserModel({
-  //   firstName: req.body.firstName,
-  //   lastName: req.body.lastName,
-  //   age: req.body.age,
-  //   email: req.body.email,
-  //   phone: req.body.phone,
-  //   eventsAttended: req.body.eventsAttended,
-  //   gender: req.body.gender
-  // });
-
   try {
-    const result = await createUserSchema.validateAsync(req.body)
-    const user = new UserModel(result)
+    const result = await createUserSchema.validateAsync(req.body);
+    const user = new UserModel(result);
     const request = await user.save();
     res.json(request);
-
-
   } catch (err) {
     // if (err.isJoi === true) {
     //   error.status = 422
     // };
-    if (err.name === "ValidationError") {
+    if (err.name === 'ValidationError') {
       return next(createError(422, err.message));
     }
-    next(err)
+    next(err);
   }
-}
+};
 
 const update_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
@@ -92,39 +75,37 @@ const update_user = async (req, res, next) => {
       throw createError(404, "User doesn't exist");
     }
 
-    const result = await updateUserSchema.validateAsync(req.body)
-
+    const result = await updateUserSchema.validateAsync(req.body);
 
     if (req.body.firstName) {
-      user.firstName = req.body.firstName
-    };
+      user.firstName = req.body.firstName;
+    }
     if (req.body.lastName) {
-      user.lastName = req.body.lastName
-    };
+      user.lastName = req.body.lastName;
+    }
     if (req.body.email) {
-      user.email = req.body.email
-    };
+      user.email = req.body.email;
+    }
     if (req.body.age) {
-      user.age = req.body.age
-    };
+      user.age = req.body.age;
+    }
     if (req.body.phone) {
-      user.phone = req.body.phone
-    };
+      user.phone = req.body.phone;
+    }
     if (req.body.eventsAttended) {
-      user.eventsAttended = req.body.eventsAttended
-    };
+      user.eventsAttended = req.body.eventsAttended;
+    }
     if (req.body.gender) {
-      user.gender = req.body.gender
-    };
+      user.gender = req.body.gender;
+    }
 
     await user.save();
     res.send(user);
-
   } catch (err) {
     if (err instanceof mongoose.CastError) {
-      return next(createError(400, "Invalid User id"))
+      return next(createError(400, 'Invalid User id'));
     }
-    next(err)
+    next(err);
   }
 };
 
@@ -134,26 +115,25 @@ const delete_user = async (req, res, next) => {
   try {
     const request = await UserModel.findByIdAndDelete({
       _id: req.params.id
-    })
+    });
     if (!request) {
       throw createError(404, "User doesn't exist");
     }
     res.json(request);
   } catch (err) {
     if (err instanceof mongoose.CastError) {
-      next(createError(400, "Invalid User id"))
-      return
+      next(createError(400, 'Invalid User id'));
+      return;
     }
-    next(err)
+    next(err);
   }
-}
-
+};
 
 module.exports = {
   getAll,
   getSingle,
   create_user,
   delete_user,
-  update_user,
+  update_user
   // testCreateUser
-}
+};

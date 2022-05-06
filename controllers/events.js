@@ -2,7 +2,7 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const collection = 'events';
-const database = mongodb.getDb().db().collection(collection)
+const database = mongodb.getDb().db().collection(collection);
 
 const getAll = async (req, res) => {
   // database = mongodb.getDb().db().collection(collection)
@@ -44,4 +44,4 @@ module.exports = {
   getAll,
   getSingle,
   createEvent
-}
+};

@@ -2,11 +2,10 @@ const database = require('./db/mongoDb.js');
 const app = require('./app.js');
 
 app
-    // .makeApp(database)
-    .listen(process.env.PORT || 8080, () => {
-        console.log("listening on port 8080");
-    })
-
+  // .makeApp(database)
+  .listen(process.env.PORT || 8080, () => {
+    console.log('listening on port 8080');
+  });
 
 // const express = require('express');
 // const bodyParser = require('body-parser');

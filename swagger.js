@@ -7,7 +7,7 @@ const doc = {
   },
   // host: 'cse341-project02-mw.herokuapp.com',
   host: 'localhost:8080',
-  schemes: ['http'],
+  schemes: ['http']
   // tags: [
   //   {
   //     name: 'Users',
