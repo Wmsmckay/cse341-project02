@@ -8,6 +8,10 @@
 // const db = require('./config/database');
 // // const {MongoClient} = require('mongodb');
 
+// Githut for testing
+// https://github.com/ryuuto829/test-node-mongoose-jest
+
+
 const request = require('supertest');
 const app = require('../app');
 const db = require('./db');
