@@ -1,4 +1,4 @@
-const collection = 'users';
+// const collection = 'users';
 const { response } = require('express');
 const res = require('express/lib/response');
 const UserModel = require('../models/users');
