@@ -1,6 +1,8 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
-const { deserializeUser } = require('passport');
+const {
+    deserializeUser
+} = require('passport');
 // const {
 //     eventNames
 // } = require('../app');
@@ -11,7 +13,8 @@ module.exports = function (passport) {
         new GoogleStrategy({
                 clientID: process.env.GOOGLE_CLIENT_ID,
                 clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-                callbackURL: '/auth/google/callback',
+                // callbackURL: '/auth/google/callback/',
+                callbackURL: 'https://cse341-project02-mw.herokuapp.com/auth/google/callback/'
             },
             async (accessToken, refreshToken, profile, done) => {
                 // console.log(profile);
@@ -21,9 +24,9 @@ module.exports = function (passport) {
                     image: profile.photos[0].value
                 }
                 try {
-                    let user = await AuthUser.findOne({ googleId: profile.id})
+                    let user = await AuthUser.findOne({ googleId: profile.id })
 
-                    if(user) {
+                    if (user) {
                         done(null, user)
                     } else {
                         user = await AuthUser.create(newUser)
