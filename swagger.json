@@ -17,19 +17,40 @@
       "description": "Endpoints for Events"
     }
   ],
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
-    "/": {
+    "/dashboard": {
       "get": {
-        "tags": ["Events"],
         "description": "",
         "parameters": [],
         "responses": {}
       }
     },
-    "/dashboard/": {
+    "/": {
       "get": {
-        "tags": ["Events"],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/logout": {
+      "get": {
         "description": "",
         "parameters": [],
         "responses": {}
@@ -37,7 +58,9 @@
     },
     "/users/": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -47,7 +70,9 @@
         }
       },
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -59,7 +84,9 @@
     },
     "/users/{id}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -76,7 +103,9 @@
         }
       },
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -123,7 +152,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -142,7 +173,9 @@
     },
     "/events/": {
       "get": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -152,7 +185,9 @@
         }
       },
       "post": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -164,7 +199,9 @@
     },
     "/events/{id}": {
       "get": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [
           {
@@ -181,7 +218,9 @@
         }
       },
       "put": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [
           {
@@ -222,7 +261,9 @@
         }
       },
       "delete": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "description": "",
         "parameters": [
           {
