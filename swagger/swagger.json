@@ -19,22 +19,6 @@
   ],
   "schemes": ["https"],
   "paths": {
-    "/": {
-      "get": {
-        "tags": ["Events"],
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/dashboard/": {
-      "get": {
-        "tags": ["Events"],
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
     "/users/": {
       "get": {
         "tags": ["Users"],
