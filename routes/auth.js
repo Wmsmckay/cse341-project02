@@ -5,6 +5,7 @@ const passport = require('passport');
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
 router.get(
+  // #swagger.ignore = true
   '/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
@@ -13,6 +14,7 @@ router.get(
 );
 
 router.get('/logout', (req, res) => {
+  // #swagger.ignore = true
   req.logout();
   res.redirect('/');
 });

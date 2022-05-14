@@ -6,9 +6,9 @@ const doc = {
     description: 'API for creating events and registering to attend them.',
     version: "1.0.3"
   },
-  host: 'cse341-project02-mw.herokuapp.com',
-  // host: 'localhost:8080',
-  schemes: ['https'],
+  // host: 'cse341-project02-mw.herokuapp.com',
+  host: 'localhost:8080',
+  schemes: ['http'],
   tags: [{
       name: 'Users',
       description: 'Endpoints for Users'
@@ -16,7 +16,12 @@ const doc = {
     {
       name: 'Events',
       description: 'Endpoints for Events'
+    },
+    {
+      name: 'Authenticated Users',
+      description: 'Endpoints for Authenticated Users'
     }
+    
   ],
   // securityDefinitions: {
   //   oAuth2: {

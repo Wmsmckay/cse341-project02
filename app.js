@@ -9,7 +9,7 @@ const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
 const { default: mongoose } = require('mongoose');
-const  MongoStore = require('connect-mongo')//(session)
+const  MongoStore = require('connect-mongo');
 
 const app = express();
 
@@ -25,7 +25,6 @@ app
       resave: false,
       saveUninitialized: true,
       store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
-      // cookie: { secure: true }
     })
   )
   .use(passport.initialize())
@@ -38,9 +37,6 @@ app
   })
   .use('/', require('./routes'))
   .use((req, res, next) => {
-    // const err = new Error('not found');
-    // err.status = 404;
-    // next(err)
     next(createError(404, 'Not found'));
   })
   .use((err, req, res, next) => {
@@ -49,21 +45,9 @@ app
       error: {
         status: err.status || 500,
         message: err.message
-        // message: `${err.status || 500}: ${err.message}`
       }
     });
   });
 
-//   return app;
-// };
 
 module.exports = app;
-
-// mongodb.initDb((err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     app.listen(port);
-//     console.log(`App running on port: ${port}`);
-//   }
-// });
