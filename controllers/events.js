@@ -67,7 +67,7 @@ const update_event = async (req, res, next) => {
   // #swagger.tags = ['Events']
 
   try {
-    const event = await EventModel.findById(req.params.id);
+    const event = await EventsModel.findById(req.params.id);
 
     if (!event) {
       throw createError(404, "Event doesn't exist");
@@ -105,7 +105,7 @@ const delete_event = async (req, res, next) => {
   // #swagger.tags = ['Events']
 
   try {
-    const request = await EventModel.findByIdAndDelete({
+    const request = await EventsModel.findByIdAndDelete({
       _id: req.params.id
     });
     if (!request) {
