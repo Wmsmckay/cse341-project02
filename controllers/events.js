@@ -44,6 +44,13 @@ const create_event = async (req, res, next) => {
   // #swagger.tags = ['Events']
 
   try {
+
+    !req.body.eventName ||
+    !req.body.participants ||
+    !req.body.location ||
+    !req.body.description ||
+    !req.body.host
+
     const result = await createEventSchema.validateAsync(req.body);
     const event = new EventsModel(result);
     const request = await event.save();

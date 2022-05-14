@@ -6,14 +6,6 @@ const createError = require('http-errors');
 const mongoose = require('mongoose');
 const { createUserSchema, updateUserSchema } = require('../helpers/validation_schema');
 
-// #swagger.tags = ['Users']
-
-// const testCreateUser = async (req, res) => {
-//   res.send({});
-//   // res.status(200);
-//   // res.sendStatus(200);
-// }
-
 const getAll = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
@@ -21,9 +13,6 @@ const getAll = async (req, res, next) => {
     const request = await UserModel.find();
     res.json(request);
   } catch (err) {
-    // res.json({
-    //   message: err
-    // });
     next(err);
   }
 };
@@ -51,13 +40,18 @@ const create_user = async (req, res, next) => {
 
   try {
     const result = await createUserSchema.validateAsync(req.body);
+    !req.body.firstName ||
+    !req.body.lastName ||
+    !req.body.email ||
+    !req.body.age ||
+    !req.body.phone ||
+    !req.body.eventsAttended ||
+    !req.body.gender
+
     const user = new UserModel(result);
     const request = await user.save();
     res.json(request);
   } catch (err) {
-    // if (err.isJoi === true) {
-    //   error.status = 422
-    // };
     if (err.name === 'ValidationError') {
       return next(createError(422, err.message));
     }

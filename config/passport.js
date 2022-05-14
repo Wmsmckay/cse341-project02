@@ -16,7 +16,6 @@ module.exports = function (passport) {
                 callbackURL: 'https://cse341-project02-mw.herokuapp.com/auth/google/callback/'
                 // callbackURL: '/auth/google/callback'
 
-        
             },
             async (accessToken, refreshToken, profile, done) => {
                 // console.log(profile);
