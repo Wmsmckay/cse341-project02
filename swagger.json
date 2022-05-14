@@ -3,7 +3,7 @@
   "info": {
     "title": "Events API",
     "description": "API for creating events and registering to attend them.",
-    "version": "1.0.0"
+    "version": "1.0.3"
   },
   "host": "cse341-project02-mw.herokuapp.com",
   "basePath": "/",
@@ -21,14 +21,14 @@
     "https"
   ],
   "paths": {
-    "/dashboard": {
+    "/": {
       "get": {
         "description": "",
         "parameters": [],
         "responses": {}
       }
     },
-    "/": {
+    "/dashboard": {
       "get": {
         "description": "",
         "parameters": [],
