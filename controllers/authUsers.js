@@ -38,7 +38,7 @@ const delete_user = async (req, res, next) => {
   // #swagger.tags = ['Authenticated Users']
 
   try {
-    const request = await UserModel.findByIdAndDelete({
+    const request = await AuthUserModel.findByIdAndDelete({
       _id: req.params.id
     });
     if (!request) {
